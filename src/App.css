@@ -1,9 +1,48 @@
 * {
   margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-.header {
-  background-color: gray;
-  height: 100px;
-  width: 100%;
+header {
+  height: 50px;
+  width: 100vw;
+  background-color: grey;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0px 20px;
+}
+
+nav {
+  position: absolute;
+  height: 100vh;
+  width: 300px;
+  background-color: aquamarine;
+  top: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 70px;
+  gap: 20px;
+}
+
+.menu-show {
+  right: 0;
+  transition: all 0.3s ease-in-out;
+}
+
+.menu-hide {
+  right: -350px;
+  transition: all 0.3s ease-in-out;
+}
+
+.main-page {
+  width: 100vw;
+  height: calc(100vh - 50px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 20px;
 }
