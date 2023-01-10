@@ -1,8 +1,10 @@
 const express = require('express')
 const cors = require('cors')
 const db = require('./database')
-const { Car, Photo, User, Inquiry } = require('./models')
 const seed = require('./seed')
+
+const { Car, Photo, User, Inquiry } = require('./models')
+const { getAllCars } = require('./controllers/car')
 
 const server = express()
 server.use(express.json())
@@ -18,8 +20,11 @@ Inquiry.belongsTo(User)
 Car.hasMany(Inquiry)
 Inquiry.belongsTo(Car)
 
+// Endpoints
+server.get('/api/allCars', getAllCars)
 
-db
-    .sync()
-    .then(seed())
+
+// db
+    // .sync({force: true})
+    // .then(() => seed())
 server.listen(4000, () => console.log('Listening on 4000'))
